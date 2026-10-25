@@ -29,10 +29,23 @@ section[hidden] { display:none; }
 dt { font-weight:600; margin-top:14px; }
 dd { margin:4px 0 0 0; }
 li { margin:4px 0; }
+.home { display:inline-flex; align-items:center; gap:8px; color:var(--fg); text-decoration:none;
+  font-weight:600; margin-bottom:14px; }
+.home img { width:28px; height:28px; }
+.hero { display:flex; align-items:center; gap:20px; margin:32px 0 8px; }
+.hero img { width:88px; height:88px; flex:none; }
+.hero h1 { margin:0 0 6px; font-size:34px; }
+.hero p { margin:0; color:var(--muted); font-size:18px; }
+.buttons { display:flex; flex-wrap:wrap; gap:12px; margin:24px 0 8px; }
+.btn { display:inline-block; padding:10px 20px; border-radius:8px; text-decoration:none; font-weight:600;
+  border:1px solid var(--accent); color:var(--accent); }
+.btn.primary { background:var(--accent); color:var(--bg); }
+@media (max-width:520px) { .hero { flex-direction:column; align-items:flex-start; } }
 </style>
 </head>
 <body>
 <main>
+<a class="home" href="https://bkminer.github.io/AutoAllow/"><img src="https://bkminer.github.io/AutoAllow/icon.png" alt="">AutoAllow</a>
 <nav aria-label="Language">
 <a href="#zh-CN">简体中文</a>
 <a href="#zh-TW">繁體中文</a>
@@ -88,7 +101,7 @@ li { margin:4px 0; }
 <h2 id="zh-CN-10">常见问题</h2>
 <dl><dt>列表里找不到我的控制台窗口。</dt><dd>默认只列出正在运行 Claude Code 的命令提示符、PowerShell 窗口。勾选&quot;显示全部&quot;可以看到所有控制台。其他终端程序 (如 Git Bash、WSL 窗口) 目前不支持。</dd><dt>Claude Desktop 的会话没有出现在列表里。</dt><dd>确认 Claude Desktop 窗口是打开的 (不是只在托盘里), 并以无障碍模式运行。默认只列出运行中或等待确认的会话, 勾选&quot;显示全部&quot;可以看到全部会话。</dd><dt>日志显示&quot;检测到确认框但不属于所选 session, 忽略&quot;。</dt><dd>AutoAllow 无法确定这个确认框属于你选中的会话时, 宁可不点。可以改用&quot;监控全部 session&quot;, 或者把这个会话也加入监控。</dd><dt>&quot;以无障碍模式重启&quot;失败。</dt><dd>这个按钮只支持从 Microsoft Store 安装的 Claude Desktop。请稍等片刻再试一次。</dd><dt>切换语言后界面没变。</dt><dd>语言在重启 AutoAllow 后生效: 右键托盘图标选&quot;退出&quot;, 再重新打开。</dd><dt>我想先看看会确认什么, 但不想真的确认。</dt><dd>使用&quot;只检测不操作&quot;模式。</dd></dl>
 <h2 id="zh-CN-11">隐私和联系方式</h2>
-<p>AutoAllow 不联网, 不收集任何数据。详见隐私政策: <a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>。问题和建议请发邮件到 <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>。</p>
+<p>AutoAllow 不联网, 不收集任何数据。详见隐私政策: <a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>。问题和建议请发邮件到 <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>。</p>
 <p>AutoAllow 是独立工具, 与 Anthropic 没有关联, 也未获得其认可。Claude 是 Anthropic 的商标。</p>
 </section>
 <section id="lang-zh-TW" lang="zh-TW">
@@ -134,7 +147,7 @@ li { margin:4px 0; }
 <h2 id="zh-TW-10">疑難排解</h2>
 <dl><dt>清單中沒有我的主控台視窗。</dt><dd>預設只會列出執行 Claude Code 的命令提示字元與 PowerShell 視窗。勾選 「顯示全部」 可看到所有主控台。其他終端機（例如 Git Bash 或 WSL 視窗）目前尚不支援。</dd><dt>清單中沒有我的 Claude Desktop 工作階段。</dt><dd>請確認 Claude Desktop 視窗已開啟（不只是在系統匣中），並且以協助工具模式執行。預設只會列出正在執行或等待中的工作階段；勾選 「顯示全部」 可看到全部。</dd><dt>記錄中出現 「偵測到提示，但不屬於所選工作階段，已忽略」。</dt><dd>當 AutoAllow 無法確定某個對話方塊屬於你選取的工作階段時，就不會點擊。請使用 「監控所有工作階段」，或把該工作階段加入監控。</dd><dt>「以協助工具模式重新啟動」 失敗。</dt><dd>這個按鈕只支援從 Microsoft Store 安裝的 Claude Desktop。請稍候片刻後再試一次。</dd><dt>我變更了語言，但沒有任何改變。</dt><dd>語言要在 AutoAllow 重新啟動後才會生效：在系統匣圖示上按右鍵，選擇 「結束」，然後再次開啟。</dd><dt>我想看看哪些提示會被確認，但不要真的確認。</dt><dd>請使用 「僅偵測」 模式。</dd></dl>
 <h2 id="zh-TW-11">隱私與聯絡方式</h2>
-<p>AutoAllow 不會建立任何網路連線，也不會收集任何資料。隱私權政策請見：<a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>。問題與建議請寄至 <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>。</p>
+<p>AutoAllow 不會建立任何網路連線，也不會收集任何資料。隱私權政策請見：<a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>。問題與建議請寄至 <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>。</p>
 <p>AutoAllow 是獨立工具，與 Anthropic 無關聯，也未獲 Anthropic 背書。Claude 是 Anthropic 的商標。</p>
 </section>
 <section id="lang-en" lang="en">
@@ -180,7 +193,7 @@ li { margin:4px 0; }
 <h2 id="en-10">Troubleshooting</h2>
 <dl><dt>My console window is not in the list.</dt><dd>By default only Command Prompt and PowerShell windows running Claude Code are listed. Check &quot;Show all&quot; to see every console. Other terminals, such as Git Bash or WSL windows, are not supported yet.</dd><dt>My Claude Desktop sessions are not in the list.</dt><dd>Make sure the Claude Desktop window is open (not only in the tray) and running in accessibility mode. By default only running or waiting sessions are listed; check &quot;Show all&quot; to see all of them.</dd><dt>The log says &quot;Prompt detected but it does not belong to a selected session, ignored&quot;.</dt><dd>When AutoAllow cannot tell for sure that a dialog belongs to a session you selected, it does not click. Use &quot;Monitor all sessions&quot;, or add that session to the monitored ones.</dd><dt>&quot;Restart in accessibility mode&quot; fails.</dt><dd>This button only supports Claude Desktop installed from the Microsoft Store. Wait a moment and try again.</dd><dt>I changed the language but nothing changed.</dt><dd>The language takes effect after AutoAllow restarts: right-click the tray icon, choose &quot;Quit&quot;, and open it again.</dd><dt>I want to see what would be confirmed without confirming anything.</dt><dd>Use &quot;Detect only&quot; mode.</dd></dl>
 <h2 id="en-11">Privacy and contact</h2>
-<p>AutoAllow makes no network connections and collects no data. See the privacy policy: <a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>. Send questions and suggestions to <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
+<p>AutoAllow makes no network connections and collects no data. See the privacy policy: <a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>. Send questions and suggestions to <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
 <p>AutoAllow is an independent tool and is not affiliated with or endorsed by Anthropic. Claude is a trademark of Anthropic.</p>
 </section>
 <section id="lang-ja" lang="ja">
@@ -226,7 +239,7 @@ li { margin:4px 0; }
 <h2 id="ja-10">トラブルシューティング</h2>
 <dl><dt>コンソールウィンドウが一覧に表示されません。</dt><dd>既定では、Claude Code を実行しているコマンド プロンプトと PowerShell のウィンドウだけが表示されます。「すべて表示」にチェックを入れると、すべてのコンソールが表示されます。Git Bash や WSL のウィンドウなど、そのほかのターミナルは今のところ対応していません。</dd><dt>Claude Desktop のセッションが一覧に表示されません。</dt><dd>Claude Desktop のウィンドウが開いていて（トレイにあるだけではなく）、アクセシビリティモードで実行されていることを確認してください。既定では、実行中または待機中のセッションだけが表示されます。「すべて表示」にチェックを入れると、すべて表示されます。</dd><dt>ログに「プロンプトを検出しましたが、選択したセッションのものではないため無視しました」と表示されます。</dt><dd>ダイアログが選択したセッションのものだと AutoAllow が確実に判断できない場合は、クリックしません。「すべてのセッションを監視」を使うか、そのセッションを監視対象に追加してください。</dd><dt>「アクセシビリティモードで再起動」が失敗します。</dt><dd>このボタンは、Microsoft Store からインストールした Claude Desktop にのみ対応しています。しばらく待ってから、もう一度お試しください。</dd><dt>言語を変更しても、何も変わりません。</dt><dd>言語は AutoAllow を再起動すると反映されます。トレイのアイコンを右クリックして「終了」を選び、もう一度開いてください。</dd><dt>何も承認せずに、何が承認されるのかを確認したいです。</dt><dd>「検出のみ」モードを使ってください。</dd></dl>
 <h2 id="ja-11">プライバシーとお問い合わせ</h2>
-<p>AutoAllow はネットワーク接続を行わず、データも収集しません。プライバシーポリシーは次をご覧ください：<a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>。ご質問やご提案は <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a> までお送りください。</p>
+<p>AutoAllow はネットワーク接続を行わず、データも収集しません。プライバシーポリシーは次をご覧ください：<a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>。ご質問やご提案は <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a> までお送りください。</p>
 <p>AutoAllow は独立したツールであり、Anthropic と提携しておらず、Anthropic の承認も受けていません。Claude は Anthropic の商標です。</p>
 </section>
 <section id="lang-ko" lang="ko">
@@ -272,7 +285,7 @@ li { margin:4px 0; }
 <h2 id="ko-10">문제 해결</h2>
 <dl><dt>내 콘솔 창이 목록에 없습니다.</dt><dd>기본적으로는 Claude Code를 실행 중인 명령 프롬프트와 PowerShell 창만 표시됩니다. &quot;모두 표시&quot;를 선택하면 모든 콘솔이 표시됩니다. Git Bash나 WSL 창 같은 다른 터미널은 아직 지원되지 않습니다.</dd><dt>내 Claude Desktop 세션이 목록에 없습니다.</dt><dd>Claude Desktop 창이 (트레이에만 있지 않고) 열려 있고 접근성 모드로 실행 중인지 확인하세요. 기본적으로는 실행 중이거나 대기 중인 세션만 표시되며, &quot;모두 표시&quot;를 선택하면 전체가 표시됩니다.</dd><dt>로그에 &quot;프롬프트를 감지했지만 선택한 세션에 속하지 않아 무시했습니다&quot;라고 나옵니다.</dt><dd>대화 상자가 선택한 세션에 속한다고 AutoAllow가 확실히 판단할 수 없으면 클릭하지 않습니다. &quot;모든 세션 모니터링&quot;을 사용하거나 해당 세션을 모니터링 대상에 추가하세요.</dd><dt>&quot;접근성 모드로 다시 시작&quot;이 실패합니다.</dt><dd>이 버튼은 Microsoft Store에서 설치한 Claude Desktop만 지원합니다. 잠시 기다린 후 다시 시도하세요.</dd><dt>언어를 바꿨는데 아무것도 달라지지 않습니다.</dt><dd>언어는 AutoAllow를 다시 시작해야 적용됩니다. 트레이 아이콘을 마우스 오른쪽 버튼으로 클릭하고 &quot;종료&quot;를 선택한 다음 다시 여세요.</dd><dt>아무것도 승인하지 않고 무엇이 승인될지만 보고 싶습니다.</dt><dd>&quot;감지만&quot; 모드를 사용하세요.</dd></dl>
 <h2 id="ko-11">개인정보 보호 및 문의</h2>
-<p>AutoAllow는 네트워크에 연결하지 않으며 어떤 데이터도 수집하지 않습니다. 개인정보 처리방침은 다음을 참조하세요: <a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>. 질문과 제안은 <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>로 보내 주세요.</p>
+<p>AutoAllow는 네트워크에 연결하지 않으며 어떤 데이터도 수집하지 않습니다. 개인정보 처리방침은 다음을 참조하세요: <a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>. 질문과 제안은 <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>로 보내 주세요.</p>
 <p>AutoAllow는 독립적인 도구이며 Anthropic과 제휴하거나 Anthropic의 보증을 받은 것이 아닙니다. Claude는 Anthropic의 상표입니다.</p>
 </section>
 <section id="lang-de" lang="de">
@@ -318,7 +331,7 @@ li { margin:4px 0; }
 <h2 id="de-10">Fehlerbehebung</h2>
 <dl><dt>Mein Konsolenfenster steht nicht in der Liste.</dt><dd>Standardmäßig werden nur Fenster der Eingabeaufforderung und von PowerShell aufgeführt, in denen Claude Code läuft. Aktivieren Sie „Alle anzeigen“, um jede Konsole zu sehen. Andere Terminals, etwa Git-Bash- oder WSL-Fenster, werden noch nicht unterstützt.</dd><dt>Meine Claude-Desktop-Sitzungen stehen nicht in der Liste.</dt><dd>Stellen Sie sicher, dass das Fenster von Claude Desktop geöffnet ist (nicht nur im Infobereich) und im Barrierefreiheitsmodus läuft. Standardmäßig werden nur laufende oder wartende Sitzungen aufgeführt; aktivieren Sie „Alle anzeigen“, um alle zu sehen.</dd><dt>Im Protokoll steht „Abfrage erkannt, gehört aber zu keiner ausgewählten Sitzung, ignoriert“.</dt><dd>Wenn AutoAllow nicht sicher feststellen kann, dass ein Dialog zu einer von Ihnen ausgewählten Sitzung gehört, klickt es nicht. Verwenden Sie „Alle Sitzungen überwachen“, oder fügen Sie diese Sitzung zu den überwachten hinzu.</dd><dt>„Im Barrierefreiheitsmodus neu starten“ schlägt fehl.</dt><dd>Diese Schaltfläche unterstützt nur Claude Desktop, das über den Microsoft Store installiert wurde. Warten Sie einen Moment und versuchen Sie es erneut.</dd><dt>Ich habe die Sprache geändert, aber nichts hat sich geändert.</dt><dd>Die Sprache wird erst nach einem Neustart von AutoAllow wirksam: Klicken Sie mit der rechten Maustaste auf das Symbol im Infobereich, wählen Sie „Beenden“ und öffnen Sie die App erneut.</dd><dt>Ich möchte sehen, was bestätigt würde, ohne etwas zu bestätigen.</dt><dd>Verwenden Sie den Modus „Nur erkennen“.</dd></dl>
 <h2 id="de-11">Datenschutz und Kontakt</h2>
-<p>AutoAllow stellt keine Netzwerkverbindungen her und erhebt keine Daten. Die Datenschutzerklärung finden Sie hier: <a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>. Fragen und Vorschläge senden Sie bitte an <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
+<p>AutoAllow stellt keine Netzwerkverbindungen her und erhebt keine Daten. Die Datenschutzerklärung finden Sie hier: <a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>. Fragen und Vorschläge senden Sie bitte an <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
 <p>AutoAllow ist ein unabhängiges Tool und steht in keiner Verbindung zu Anthropic und wird auch nicht von Anthropic unterstützt. Claude ist eine Marke von Anthropic.</p>
 </section>
 <section id="lang-fr" lang="fr">
@@ -364,7 +377,7 @@ li { margin:4px 0; }
 <h2 id="fr-10">Dépannage</h2>
 <dl><dt>Ma fenêtre de console n&#x27;apparaît pas dans la liste.</dt><dd>Par défaut, seules les fenêtres de l&#x27;Invite de commandes et de PowerShell où s&#x27;exécute Claude Code sont listées. Cochez « Tout afficher » pour voir toutes les consoles. Les autres terminaux, comme les fenêtres Git Bash ou WSL, ne sont pas encore pris en charge.</dd><dt>Mes sessions Claude Desktop n&#x27;apparaissent pas dans la liste.</dt><dd>Vérifiez que la fenêtre de Claude Desktop est ouverte (et pas seulement dans la zone de notification) et qu&#x27;elle s&#x27;exécute en mode accessibilité. Par défaut, seules les sessions en cours ou en attente sont listées ; cochez « Tout afficher » pour les voir toutes.</dd><dt>Le journal indique « Demande détectée mais hors des sessions sélectionnées, ignorée ».</dt><dd>Lorsque AutoAllow ne peut pas déterminer avec certitude qu&#x27;une boîte de dialogue appartient à une session que vous avez sélectionnée, il ne clique pas. Utilisez « Surveiller toutes les sessions », ou ajoutez cette session à celles qui sont surveillées.</dd><dt>« Redémarrer en mode accessibilité » échoue.</dt><dd>Ce bouton ne prend en charge que Claude Desktop installé depuis le Microsoft Store. Patientez un instant et réessayez.</dd><dt>J&#x27;ai changé la langue mais rien n&#x27;a changé.</dt><dd>La langue prend effet après le redémarrage d&#x27;AutoAllow : faites un clic droit sur l&#x27;icône de la zone de notification, choisissez « Quitter », puis rouvrez l&#x27;application.</dd><dt>Je veux voir ce qui serait confirmé sans rien confirmer.</dt><dd>Utilisez le mode « Détection seule ».</dd></dl>
 <h2 id="fr-11">Confidentialité et contact</h2>
-<p>AutoAllow n&#x27;établit aucune connexion réseau et ne collecte aucune donnée. Consultez la politique de confidentialité : <a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>. Envoyez vos questions et suggestions à <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
+<p>AutoAllow n&#x27;établit aucune connexion réseau et ne collecte aucune donnée. Consultez la politique de confidentialité : <a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>. Envoyez vos questions et suggestions à <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
 <p>AutoAllow est un outil indépendant, sans lien avec Anthropic ni approuvé par Anthropic. Claude est une marque d&#x27;Anthropic.</p>
 </section>
 <section id="lang-es" lang="es">
@@ -410,7 +423,7 @@ li { margin:4px 0; }
 <h2 id="es-10">Solución de problemas</h2>
 <dl><dt>Mi ventana de consola no aparece en la lista.</dt><dd>De forma predeterminada solo se muestran las ventanas del Símbolo del sistema y de PowerShell donde se ejecuta Claude Code. Marque “Mostrar todo” para ver todas las consolas. Otros terminales, como las ventanas de Git Bash o WSL, todavía no son compatibles.</dd><dt>Mis sesiones de Claude Desktop no aparecen en la lista.</dt><dd>Asegúrese de que la ventana de Claude Desktop esté abierta (no solo en la bandeja) y se ejecute en modo de accesibilidad. De forma predeterminada solo se muestran las sesiones en ejecución o en espera; marque “Mostrar todo” para verlas todas.</dd><dt>El registro dice “Solicitud detectada pero no pertenece a una sesión seleccionada, ignorada”.</dt><dd>Cuando AutoAllow no puede saber con certeza que un cuadro de diálogo pertenece a una sesión que usted seleccionó, no hace clic. Use “Supervisar todas las sesiones”, o añada esa sesión a las supervisadas.</dd><dt>“Reiniciar en modo de accesibilidad” falla.</dt><dd>Este botón solo admite Claude Desktop instalado desde Microsoft Store. Espere un momento e inténtelo de nuevo.</dd><dt>Cambié el idioma pero no ha cambiado nada.</dt><dd>El idioma se aplica cuando AutoAllow se reinicia: haga clic con el botón derecho en el icono de la bandeja, elija “Salir” y vuelva a abrir la aplicación.</dd><dt>Quiero ver qué se confirmaría sin confirmar nada.</dt><dd>Use el modo “Solo detectar”.</dd></dl>
 <h2 id="es-11">Privacidad y contacto</h2>
-<p>AutoAllow no establece conexiones de red ni recopila datos. Consulte la política de privacidad: <a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>. Envíe sus preguntas y sugerencias a <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
+<p>AutoAllow no establece conexiones de red ni recopila datos. Consulte la política de privacidad: <a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>. Envíe sus preguntas y sugerencias a <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
 <p>AutoAllow es una herramienta independiente y no está afiliada a Anthropic ni cuenta con su respaldo. Claude es una marca de Anthropic.</p>
 </section>
 <section id="lang-pt-BR" lang="pt-BR">
@@ -456,7 +469,7 @@ li { margin:4px 0; }
 <h2 id="pt-BR-10">Solução de problemas</h2>
 <dl><dt>Minha janela de console não aparece na lista.</dt><dd>Por padrão, somente as janelas do Prompt de Comando e do PowerShell que executam o Claude Code são listadas. Marque “Mostrar tudo” para ver todos os consoles. Outros terminais, como janelas do Git Bash ou do WSL, ainda não são compatíveis.</dd><dt>Minhas sessões do Claude Desktop não aparecem na lista.</dt><dd>Verifique se a janela do Claude Desktop está aberta (e não apenas na bandeja) e em execução no modo de acessibilidade. Por padrão, somente as sessões em execução ou em espera são listadas; marque “Mostrar tudo” para ver todas.</dd><dt>O log diz “Solicitação detectada, mas não pertence a uma sessão selecionada, ignorada”.</dt><dd>Quando o AutoAllow não consegue ter certeza de que uma caixa de diálogo pertence a uma sessão que você selecionou, ele não clica. Use “Monitorar todas as sessões” ou adicione essa sessão às monitoradas.</dd><dt>“Reiniciar em modo de acessibilidade” falha.</dt><dd>Este botão só é compatível com o Claude Desktop instalado pela Microsoft Store. Aguarde um instante e tente novamente.</dd><dt>Mudei o idioma, mas nada mudou.</dt><dd>O idioma passa a valer depois que o AutoAllow é reiniciado: clique com o botão direito no ícone da bandeja, escolha “Sair” e abra o aplicativo novamente.</dd><dt>Quero ver o que seria confirmado sem confirmar nada.</dt><dd>Use o modo “Só detectar”.</dd></dl>
 <h2 id="pt-BR-11">Privacidade e contato</h2>
-<p>O AutoAllow não faz conexões de rede e não coleta dados. Consulte a política de privacidade: <a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>. Envie dúvidas e sugestões para <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
+<p>O AutoAllow não faz conexões de rede e não coleta dados. Consulte a política de privacidade: <a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>. Envie dúvidas e sugestões para <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
 <p>O AutoAllow é uma ferramenta independente e não é afiliado nem endossado pela Anthropic. Claude é uma marca da Anthropic.</p>
 </section>
 <section id="lang-ru" lang="ru">
@@ -502,7 +515,7 @@ li { margin:4px 0; }
 <h2 id="ru-10">Устранение неполадок</h2>
 <dl><dt>Моего окна консоли нет в списке.</dt><dd>По умолчанию в списке показаны только окна Командной строки и PowerShell, в которых запущен Claude Code. Установите флажок «Показать все», чтобы увидеть все консоли. Другие терминалы, например окна Git Bash или WSL, пока не поддерживаются.</dd><dt>Моих сеансов Claude Desktop нет в списке.</dt><dd>Убедитесь, что окно Claude Desktop открыто (а не только находится в области уведомлений) и запущено в режиме специальных возможностей. По умолчанию показаны только выполняющиеся или ожидающие сеансы; установите флажок «Показать все», чтобы увидеть все.</dd><dt>В журнале написано «Запрос обнаружен, но не относится к выбранному сеансу, пропущен».</dt><dd>Если AutoAllow не может точно определить, что диалог относится к выбранному вами сеансу, он не нажимает. Используйте «Следить за всеми сеансами» или добавьте этот сеанс к отслеживаемым.</dd><dt>Не удаётся выполнить «Перезапустить в режиме специальных возможностей».</dt><dd>Эта кнопка работает только с Claude Desktop, установленным из Microsoft Store. Немного подождите и попробуйте ещё раз.</dd><dt>Я изменил язык, но ничего не изменилось.</dt><dd>Язык применяется после перезапуска AutoAllow: щёлкните значок в области уведомлений правой кнопкой мыши, выберите «Выход» и откройте программу снова.</dd><dt>Я хочу увидеть, что было бы подтверждено, ничего не подтверждая.</dt><dd>Используйте режим «Только обнаружение».</dd></dl>
 <h2 id="ru-11">Конфиденциальность и контакты</h2>
-<p>AutoAllow не устанавливает сетевых подключений и не собирает данные. Политика конфиденциальности: <a href="https://bkminer.github.io/AutoAllow/">https://bkminer.github.io/AutoAllow/</a>. Вопросы и предложения отправляйте на <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
+<p>AutoAllow не устанавливает сетевых подключений и не собирает данные. Политика конфиденциальности: <a href="https://bkminer.github.io/AutoAllow/privacy.html">https://bkminer.github.io/AutoAllow/privacy.html</a>. Вопросы и предложения отправляйте на <a href="mailto:shentuqc@outlook.com">shentuqc@outlook.com</a>.</p>
 <p>AutoAllow — независимый инструмент, не связанный с Anthropic и не одобренный Anthropic. Claude — товарный знак Anthropic.</p>
 </section>
 </main>
