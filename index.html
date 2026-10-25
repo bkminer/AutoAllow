@@ -19,6 +19,16 @@ h1 { font-size:28px; line-height:1.25; margin:28px 0 4px; }
 h2 { font-size:19px; margin:28px 0 6px; }
 .updated { color:var(--muted); font-size:14px; margin:0 0 20px; }
 section[hidden] { display:none; }
+.subtitle { color:var(--muted); margin:0 0 20px; }
+.toc { border:1px solid var(--line); border-radius:8px; padding:12px 18px; margin:20px 0; }
+.toc strong { display:block; margin-bottom:4px; }
+.toc ol { margin:0; padding-left:20px; }
+.toc a, main p a { color:var(--accent); }
+.note { border-left:4px solid #d97706; background:color-mix(in srgb, #d97706 10%, transparent);
+  padding:8px 14px; border-radius:4px; }
+dt { font-weight:600; margin-top:14px; }
+dd { margin:4px 0 0 0; }
+li { margin:4px 0; }
 </style>
 </head>
 <body>
@@ -267,12 +277,15 @@ section[hidden] { display:none; }
 </section>
 </main>
 <script>
-// 按网址中的 #语言 或浏览器语言显示对应版本, 都没有时显示英文
+// 按网址中的 #语言 或浏览器语言显示对应版本, 都没有时显示英文。
+// 目录链接也用 #锚点, 所以只有 # 后面是语言代码时才切换语言
 (function () {
   var codes = ["zh-CN", "zh-TW", "en", "ja", "ko", "de", "fr", "es", "pt-BR", "ru"];
+  var current = null;
   function pick() {
     var h = location.hash.slice(1);
     if (codes.indexOf(h) >= 0) return h;
+    if (current) return current;
     var langs = navigator.languages || [navigator.language || "en"];
     for (var i = 0; i < langs.length; i++) {
       var l = (langs[i] || "").toLowerCase();
@@ -284,6 +297,8 @@ section[hidden] { display:none; }
   }
   function show() {
     var code = pick();
+    if (code === current) return;
+    current = code;
     codes.forEach(function (c) {
       document.getElementById("lang-" + c).hidden = c !== code;
       var a = document.querySelector('nav a[href="#' + c + '"]');
